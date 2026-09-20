@@ -29,6 +29,28 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    document.getElementById("messageForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const message = document.getElementById("messageInput").value.trim();
+
+  if (!message) return;
+
+  try {
+    await addDoc(collection(db, "messages"), {
+      text: message,
+      sender: "utilisateur",
+      createdAt: new Date()
+    });
+
+    document.getElementById("messageInput").value = "";
+
+    alert("Message envoyé !");
+  } catch (error) {
+    console.error(error);
+    alert("Erreur lors de l'envoi.");
+  }
+});
   const analytics = getAnalytics(app);
 </script>
 <body>
