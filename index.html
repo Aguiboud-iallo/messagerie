@@ -62,5 +62,29 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   }
 });
 </script>
+  <h2>Ma messagerie</h2>
+
+<div id="messages">
+  <p>Bonjour !</p>
+</div>
+
+<form id="messageForm">
+  <input
+    type="text"
+    id="messageInput"
+    placeholder="Écris ton message..."
+    required
+  >
+  <button type="submit">Envoyer</button>
+</form>
+  <script>
+document.getElementById("messageForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const message = document.getElementById("messageInput").value;
+
+  console.log("Message à envoyer :", message);
+});
+</script>
 </body>
 </html>
