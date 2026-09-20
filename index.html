@@ -56,7 +56,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    alert("Connexion réussie !");
+    alert("Connexion réussie ! Bienvenue dans ta messagerie.");
   } catch (error) {
     alert("Erreur : " + error.message);
   }
