@@ -35,7 +35,7 @@
 <div>
   <h2>Connexion</h2>
 
-  <form>
+  <form id="loginForm">
     <label>Nom d'utilisateur</label>
     <input type="text" placeholder="Entrez votre nom">
 
@@ -47,5 +47,20 @@
 
   <p>Pas encore de compte ? <button type="button">Créer un compte</button></p>
 </div>
+  <script>
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    alert("Connexion réussie !");
+  } catch (error) {
+    alert("Erreur : " + error.message);
+  }
+});
+</script>
 </body>
 </html>
